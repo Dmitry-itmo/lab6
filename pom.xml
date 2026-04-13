@@ -1,0 +1,11 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>lab6</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging> 
+    <modules>
+        <module>client</module>
+        <module>server</module>
+    </modules>
+</project>
