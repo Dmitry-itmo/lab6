@@ -1,18 +1,31 @@
 package laba.commands;
 
+import java.io.Serializable;
+
+import org.slf4j.*;
+
 import laba.data.*;
+import laba.serverUtility.ConnectManager;
 import laba.utility.CollectionManager;
 /**
  * Adds a new item to the collection
  */
-public class AddCommand implements Command{
+public class AddCommand implements Command,Serializable{
 
+    private static final Logger logger = LoggerFactory.getLogger(ConnectManager.class);
+
+    private static final long serialVersionUID = 1L;
+
+    private SpaceMarine spaceMarine;
+
+    public SpaceMarine getSpaceMarine() {
+        return spaceMarine;
+    }
 
     @Override
     public void execute(){
-        SpaceMarine spaceMarine = CollectionManager.createElementSpaceMarine();
-        CollectionManager.addSpaceMarine(spaceMarine);
-        System.out.println("Элемент добавлен в коллекцию");
+        CollectionManager.addSpaceMarine(getSpaceMarine());
+        logger.info("Добавлен элемент в коллекцию");
     }
 
     @Override

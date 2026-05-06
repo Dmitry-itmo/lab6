@@ -1,5 +1,6 @@
 package laba.commands;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import laba.data.SpaceMarine;
@@ -8,7 +9,8 @@ import laba.utility.CollectionManager;
 /**
  * The command shows information about each item in the collection
  */
-public class ShowCommand implements Command{
+public class ShowCommand implements Command,Serializable{
+    private static final long serialVersionUID = 1L;
     @Override
     public void execute() {
         if (CollectionManager.getCollection().size() == 0) {

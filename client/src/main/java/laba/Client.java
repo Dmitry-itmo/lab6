@@ -12,7 +12,7 @@ public class Client {
 
     public static DatagramChannel channel;
     public static String host = "localhost";
-    public static int port = 67;
+    public static int port = 6767;
 
     private static InetSocketAddress inetSocketAddress = new InetSocketAddress(host,port);
 
@@ -22,38 +22,55 @@ public class Client {
     }
 
     public static void main(String[] args){
-        FileManager.load();
+        System.out.println("\r\n" + //
+                        "██╗░░░░░░█████╗░██████╗░░░░░░░░█████╗░\r\n" + //
+                        "██║░░░░░██╔══██╗██╔══██╗░░░░░░██╔═══╝░\r\n" + //
+                        "██║░░░░░███████║██████╦╝█████╗██████╗░\r\n" + //
+                        "██║░░░░░██╔══██║██╔══██╗╚════╝██╔══██╗\r\n" + //
+                        "███████╗██║░░██║██████╦╝░░░░░░╚█████╔╝\r\n" + //
+                        "╚══════╝╚═╝░░╚═╝╚═════╝░░░░░░░░╚════╝░");
         
         try (DatagramChannel clientSocket = DatagramChannel.open()) {
             channel = clientSocket;
             Client.channel.configureBlocking(false);
+            while (true) {
+                if (ServerManager.checkServer()) {
+                    break;
+                }
+                System.out.println("Нажмите на Enter, чтобы повторить попытку");
+                ConsoleManager.readLine();
+            }
+            
+            
+            System.out.println("===== Успешное подключение =====");
             System.out.println("Введите сообщение");
+               
             while (true) {
 
+                
                 String userLine = ConsoleManager.readLine();
+                
 
-                try {  
+                try {
+                    if (ServerManager.checkServer()) {
+                        ServerManager.loadCollection();
+                    } else {
+                        System.out.println("Вы работаете с локальной коллекцией");
+                    }  
                     CommandManager.useCommand(userLine); 
                 } catch (IncorrectCommandException e) {
                     System.err.println(e.getMessage());
                 } 
+                
 
             }
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Ошибка");
         }
 
 
         
-        // FileManager.load();
-        // while (true) {
-        //     String userLine = ConsoleManager.readLine();
-        //     try {  
-        //         CommandManager.useCommand(userLine); 
-        //     } catch (IncorrectCommandException e) {
-        //         System.err.println(e.getMessage());
-        //     }  
-        // }
+     
     }
 } 

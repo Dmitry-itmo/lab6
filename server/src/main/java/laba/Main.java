@@ -1,5 +1,7 @@
 package laba;
 
+import java.io.File;
+
 import laba.serverUtility.ConnectManager;
 import laba.utility.*;
 /**
@@ -7,7 +9,11 @@ import laba.utility.*;
  */
 public class Main {
     public static void main(String[] args){
-        FileManager.load();
+        try {
+            FileManager.load();
+        } catch(Exception e) {
+            FileManager.save();
+        }
         ConnectManager.connecting();
     }
 } 

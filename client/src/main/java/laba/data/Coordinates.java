@@ -1,8 +1,10 @@
 package laba.data;
 
+import java.io.Serializable;
+
 import laba.exceptions.IncorrectCommandException;
 
-public class Coordinates {
+public class Coordinates implements Serializable {
     private long x;
     private float y; //Значение поля должно быть больше -192
 

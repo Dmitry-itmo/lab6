@@ -1,20 +1,26 @@
 package laba.commands;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
+
+import org.slf4j.*;
+
 import java.util.Collections;
 
 import laba.data.Chapter;
 import laba.data.SpaceMarine;
+import laba.serverUtility.ConnectManager;
 import laba.utility.CollectionManager;
 /**
  * A command that outputs the values of the Chapter class field of all collection elements in ascending order
  */
-public class PrintFieldAscendingChapterCommand implements Command{
+public class PrintFieldAscendingChapterCommand implements Command,Serializable{
+    private static final Logger logger = LoggerFactory.getLogger(ConnectManager.class);
     @Override
     public void execute() {
         if (CollectionManager.getCollection().size() == 0) {
-            System.out.println("В коллекции нет элементов");
+            logger.info("В коллекции нет элементов");
             return;
         }
         HashSet<SpaceMarine> hashSet = CollectionManager.getCollection();
@@ -25,11 +31,10 @@ public class PrintFieldAscendingChapterCommand implements Command{
         Collections.sort(list);
 
         for (Chapter chapter : list) {
-            System.out.println();
-            System.out.println(chapter);
+            logger.info(chapter.toString());
         }
         
-        System.out.println();
+        logger.info("Выполнена команда print_field_ascending_chapter");
     }
 
     @Override

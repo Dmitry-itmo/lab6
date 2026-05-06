@@ -1,35 +1,36 @@
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\Client.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\AddCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\ClearCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\Command.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\ExecuteScriptCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\ExitCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\HelpCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\HistoryCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\InfoCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\PrintAscendingCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\PrintDescendingCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\PrintFieldAscendingChapterCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\RemoveCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\RemoveGreaterCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\RemoveLowerCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\SaveCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\ShowCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\commands\UpdateCommand.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\AstartesCategory.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\Chapter.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\Coordinates.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\MeleeWeapon.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\SpaceMarine.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\data\Weapon.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\exceptions\IncorrectCommandException.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\exceptions\IncorrectIDException.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\sorter\SortByChapterName.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineID.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineName.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineNameReverse.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\utility\CollectionManager.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\utility\CommandManager.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\utility\ConsoleManager.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\utility\FileManager.java
-C:\Users\ggggg\OneDrive\Рабочий стол\project\lab6\client\src\main\java\laba\utility\ToByteObject.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\Client.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\AddCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\ClearCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\Command.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\ExecuteScriptCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\ExitCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\HelpCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\HistoryCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\InfoCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\PrintAscendingCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\PrintDescendingCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\PrintFieldAscendingChapterCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\RemoveCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\RemoveGreaterCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\RemoveLowerCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\SaveCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\ShowCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\commands\UpdateCommand.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\AstartesCategory.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\Chapter.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\Coordinates.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\MeleeWeapon.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\SpaceMarine.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\data\Weapon.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\exceptions\IncorrectCommandException.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\exceptions\IncorrectIDException.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\sorter\SortByChapterName.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineID.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineName.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\sorter\SortBySpaceMarineNameReverse.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\CollectionManager.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\CommandManager.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\ConsoleManager.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\FileManager.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\HeartbeatPacket.java
+C:\Users\KateR\java\lab6\client\src\main\java\laba\utility\ToByteObject.java

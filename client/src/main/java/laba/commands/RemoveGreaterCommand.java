@@ -1,30 +1,34 @@
 package laba.commands;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import laba.data.SpaceMarine;
 import laba.utility.CollectionManager;
+import laba.utility.ServerManager;
 /**
  * The command deletes all items from the collection that exceed the specified value.
  */
-public class RemoveGreaterCommand implements Command{
+public class RemoveGreaterCommand implements Command,Serializable{
+    private static final long serialVersionUID = 1L;
+
+    private SpaceMarine spaceMarine;
+
+    public SpaceMarine getSpaceMarine() {
+        return spaceMarine;
+    }
     
 
     @Override
     public void execute() {
-        ArrayList<SpaceMarine> list = new ArrayList<>(CollectionManager.getCollection());
-    
-        SpaceMarine spaceMarine = CollectionManager.createElementSpaceMarine();
-        list.add(spaceMarine);
-
-        Collections.sort(list);
-        int index = list.indexOf(spaceMarine);
-        for (int i = index+1; i < list.size(); i++) {
-            CollectionManager.removeElement(list.get(i));
-            SpaceMarine.removeID(list.get(i).getId());
-            System.out.println("Элемент с ID " + list.get(i).getId() + " удален");
+        if (!ServerManager.checkServer()) {
+            System.out.println("Вы не можете удалять элементы в коллекции без подключения к серверу");
+            return;
         }
+
+        spaceMarine = CollectionManager.createElementSpaceMarine();
+        ServerManager.sendObject(this);
         
         
     }

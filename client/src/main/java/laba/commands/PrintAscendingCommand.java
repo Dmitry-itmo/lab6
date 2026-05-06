@@ -1,5 +1,6 @@
 package laba.commands;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +9,15 @@ import laba.utility.CollectionManager;
 /**
  * A command that outputs the elements of a collection in ascending order
  */
-public class PrintAscendingCommand implements Command{
+public class PrintAscendingCommand implements Command,Serializable{
+    private static final long serialVersionUID = 1L;
+
+    private SpaceMarine spaceMarine;
+
+    public SpaceMarine getSpaceMarine() {
+        return spaceMarine;
+    }
+
     @Override
     public void execute() {
         if (CollectionManager.getCollection().size() == 0) {

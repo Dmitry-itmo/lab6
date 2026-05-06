@@ -17,6 +17,7 @@ import laba.exceptions.IncorrectIDException;
 public class CollectionManager {
     private static HashSet<SpaceMarine> collection = new HashSet<>();
     private static java.time.LocalDate creationDate = LocalDate.now();
+    private static HashSet<Integer> setID = new HashSet<>();
 
     public static void addSpaceMarine(SpaceMarine spaceMarine) {
         collection.add(spaceMarine);
@@ -42,6 +43,20 @@ public class CollectionManager {
         throw new IncorrectIDException();
     }
 
+    public static void setID() {
+        setID = new HashSet<>();
+        for (SpaceMarine spaceMarine : collection) {
+            setID.add(spaceMarine.getId());
+        }
+    }
+
+    public static HashSet<Integer> gSetID() {
+        setID();
+        return setID;
+    }
+
+    
+
     
 
     public static void removeElement(SpaceMarine spaceMarine) {
@@ -57,7 +72,12 @@ public class CollectionManager {
         return collection;
     } 
 
+    public static void setCollection(HashSet<SpaceMarine> set) {
+        collection = set;
+    }
+
     public static SpaceMarine createElementSpaceMarine() {
+        
         SpaceMarine spaceMarine = new SpaceMarine();
         System.out.println("Введите имя коробля: ");
         spaceMarine.setName(readLine());

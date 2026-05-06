@@ -2,13 +2,15 @@ package laba.data;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import laba.exceptions.IncorrectCommandException;
 import laba.exceptions.IncorrectIDException;
+import laba.utility.CollectionManager;
 /**
  * Class of collection items
  */
-public class SpaceMarine implements Comparable<SpaceMarine>{
+public class SpaceMarine implements Comparable<SpaceMarine>, Serializable{
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -24,10 +26,10 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
 
     {
         id = count++;
+       
         while (true) {
             id++;
-            if (!listID.contains(id)) {
-                listID.add(id);
+            if (!CollectionManager.gSetID().contains(id)) {
                 break;
             } 
         }
@@ -39,6 +41,9 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
         weaponType = Weapon.COMBI_FLAMER;
         meleeWeapon = MeleeWeapon.CHAIN_AXE;
         chapter = new Chapter();
+
+        
+       
     }
 
 
@@ -128,6 +133,9 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
             case "APOTHECARY": 
                 category = AstartesCategory.APOTHECARY;
                 break;
+            case "": 
+                category = AstartesCategory.TERMINATOR;
+                break;
             default: throw new IncorrectCommandException(); 
         }
     }
@@ -146,6 +154,9 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
             case "POWER_FIST": 
                 meleeWeapon = MeleeWeapon.POWER_FIST;
                 break;
+            case "": 
+                meleeWeapon = MeleeWeapon.POWER_FIST;
+                break;
             default: throw new IncorrectCommandException();
         }
     
@@ -160,6 +171,9 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
                 weaponType = Weapon.COMBI_PLASMA_GUN;
                 break;
             case "FLAMER": 
+                weaponType = Weapon.FLAMER;
+                break;
+            case "": 
                 weaponType = Weapon.FLAMER;
                 break;
             default:

@@ -1,10 +1,15 @@
 package laba.commands;
 
 import java.util.ArrayDeque;
+
+import org.slf4j.*;
+
+import laba.serverUtility.ConnectManager;
 /**
  * Shows the history of the last 9 teams
  */
 public class HistoryCommand implements Command{
+    private static final Logger logger = LoggerFactory.getLogger(ConnectManager.class);
     private static ArrayDeque<String> historyCommand = new ArrayDeque<>();
 
     public static void addCommand(String command) {
@@ -20,8 +25,9 @@ public class HistoryCommand implements Command{
     @Override
     public void execute() {
         for (String command : historyCommand) {
-            System.out.println(command);
+            logger.info(command);
         }
+        logger.info("Выполнена команда history");
     }
 
     @Override

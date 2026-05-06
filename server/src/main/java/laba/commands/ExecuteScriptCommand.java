@@ -5,19 +5,24 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
+
+import org.slf4j.*;
 
 import laba.data.Chapter;
 import laba.data.Coordinates;
 import laba.data.SpaceMarine;
 import laba.exceptions.IncorrectCommandException;
 import laba.exceptions.IncorrectIDException;
+import laba.serverUtility.ConnectManager;
 import laba.utility.CollectionManager;
 import laba.utility.CommandManager;
 /**
  * Executes commands from the file
  */
-public class ExecuteScriptCommand implements Command{
+public class ExecuteScriptCommand implements Command,Serializable{
+    private static final Logger logger = LoggerFactory.getLogger(ConnectManager.class);
     
     private ArrayList<String> elementSpaceMarine = new ArrayList<>();
     private boolean commandADD = false;
@@ -25,7 +30,7 @@ public class ExecuteScriptCommand implements Command{
 
     @Override
     public void execute() {
-        System.out.println("Нужен имя файла");
+        logger.warn("Команда невыполнена, так как нужен файл");
     }
 
     @Override
@@ -75,7 +80,7 @@ public class ExecuteScriptCommand implements Command{
                         CommandManager.useCommand(command);
                         count--;
                     } else {
-                        System.out.println("Глубина не может быть больше 10");
+                        logger.info("Глубина не может быть больше 10");
                         count = 0;
                         throw new IncorrectCommandException();
                     }
@@ -128,7 +133,7 @@ public class ExecuteScriptCommand implements Command{
             // 7
             spaceMarine.setWeaponType(arrayList.get(7));
         } catch (IncorrectCommandException e) {
-            System.out.println("Неправильно введенные типы");
+            logger.info("Неправильно введенные типы");
             throw new IncorrectCommandException();
         }
         
@@ -149,7 +154,7 @@ public class ExecuteScriptCommand implements Command{
         
         CollectionManager.addSpaceMarine(spaceMarine);
 
-        System.out.println("Элемент добавлен в коллекцию");
+        logger.info("Элемент добавлен в коллекцию");
 
         elementSpaceMarine = new ArrayList<String>();
 

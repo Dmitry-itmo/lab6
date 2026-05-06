@@ -1,6 +1,7 @@
 package laba.data;
+import java.io.Serializable;
 
-public class Chapter implements Comparable<Chapter>{
+public class Chapter implements Comparable<Chapter>, Serializable{
     private String name; //Поле не может быть null, Строка не может быть пустой
     private String world; //Поле не может быть null
 

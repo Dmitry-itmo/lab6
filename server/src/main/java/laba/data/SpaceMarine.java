@@ -1,5 +1,6 @@
 package laba.data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ import laba.exceptions.IncorrectIDException;
 /**
  * Class of collection items
  */
-public class SpaceMarine implements Comparable<SpaceMarine>{
+public class SpaceMarine implements Comparable<SpaceMarine>, Serializable{
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -112,6 +113,8 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
     }
 
      public void setCategory(String line) throws IncorrectCommandException{
+       System.out.println(line + "<-");
+
         switch (line.toUpperCase()) {
             case "INCEPTOR": 
                 category = AstartesCategory.INCEPTOR;
@@ -146,6 +149,10 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
             case "POWER_FIST": 
                 meleeWeapon = MeleeWeapon.POWER_FIST;
                 break;
+            case "\n": 
+                meleeWeapon = MeleeWeapon.POWER_FIST;
+                break;    
+
             default: throw new IncorrectCommandException();
         }
     
@@ -160,6 +167,9 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
                 weaponType = Weapon.COMBI_PLASMA_GUN;
                 break;
             case "FLAMER": 
+                weaponType = Weapon.FLAMER;
+                break;
+            case "\n":
                 weaponType = Weapon.FLAMER;
                 break;
             default:

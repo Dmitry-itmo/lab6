@@ -2,12 +2,16 @@ package laba.utility;
 
 import java.util.HashMap;
 
+import org.slf4j.*;
+
 import laba.commands.*;
 import laba.exceptions.*;
 /**
  * The class defines commands and monitors their correctness
  */
 public class CommandManager {
+
+        private static final Logger logger = LoggerFactory.getLogger(CommandManager.class);
 
     private static HashMap<String,Command> commands = new HashMap<>();
 
@@ -54,7 +58,7 @@ public class CommandManager {
             } 
             HistoryCommand.addCommand(firstWord);
         }catch (IncorrectIDException e) {
-            System.out.println("Неправильный ID");
+            logger.error("Неправильный ID");
         } catch (Exception e) {
             throw new IncorrectCommandException();
 

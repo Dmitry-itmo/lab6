@@ -5,6 +5,7 @@ import java.nio.*;
 import java.nio.charset.StandardCharsets;
 import java.net.*;
 
+import laba.utility.ServerManager;
 import laba.utility.ToByteObject;
 import laba.Client;
 /**
@@ -15,50 +16,16 @@ public class ClearCommand implements Command, Serializable{
     
     @Override
     public void execute() {
-        byte[] sendData = "PING".getBytes();
-        ByteBuffer sendByte = ByteBuffer.wrap(sendData);
-        ByteBuffer buffer = ByteBuffer.allocate(65535);
+
+        if (!ServerManager.checkServer()) {
+            System.out.println("Вы не можете очистить коллекцию без подключения к серверу");
+            return;
+        }
         
-        try {
+        ServerManager.sendObject(new ClearCommand());
 
-            Client.channel.send(sendByte, Client.gInetSocketAddress());
-            SocketAddress address = Client.channel.receive(buffer);
-
-            if (address != null) {
-                buffer.flip();
-                
-                byte[] data = new byte[buffer.remaining()];
-                buffer.get(data);
-                
-                String pong = new String(data, StandardCharsets.UTF_8);
-
-                if (!pong.equals("PONG")) {
-                    System.out.println("Неверный ответ от сервера");
-                    throw new Exception();
-                }
-            } else {
-                throw new SocketTimeoutException();
-            }
-            
-            
-        } catch (SocketTimeoutException e) {
-            System.out.println("Сервер не отвечает, попробуйте позже ещё раз");
-            return;
-        } catch(Exception e) {
-            System.err.println(e);
-            return;
-        }
-
-        sendData = ToByteObject.objectToBytes(new ClearCommand());
-        sendByte = ByteBuffer.wrap(sendData);
-        try {
-            Client.channel.send(sendByte, Client.gInetSocketAddress()); 
-              
-            
-            System.out.println("Коллекция очищена");     
-        } catch (Exception e) {
-            System.err.println(e);
-        }
+        System.out.println("Коллекция очищена");
+        
     }
     
     @Override

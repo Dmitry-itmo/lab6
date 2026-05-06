@@ -1,5 +1,8 @@
 package laba.commands;
 
+import org.slf4j.*;
+
+import laba.serverUtility.ConnectManager;
 import laba.utility.FileManager;
 
 /**
@@ -9,7 +12,6 @@ public class SaveCommand implements Command{
     @Override
     public void execute() {
         FileManager.save();
-        System.out.println("Коллекция сохранена");
     }
 
     @Override

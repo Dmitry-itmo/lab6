@@ -3,8 +3,10 @@ package laba.commands;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import laba.data.Chapter;
@@ -14,10 +16,12 @@ import laba.exceptions.IncorrectCommandException;
 import laba.exceptions.IncorrectIDException;
 import laba.utility.CollectionManager;
 import laba.utility.CommandManager;
+import laba.utility.ServerManager;
 /**
  * Executes commands from the file
  */
-public class ExecuteScriptCommand implements Command{
+public class ExecuteScriptCommand implements Command,Serializable{
+    private static final long serialVersionUID = 1L;
     
     private ArrayList<String> elementSpaceMarine = new ArrayList<>();
     private boolean commandADD = false;
@@ -30,12 +34,17 @@ public class ExecuteScriptCommand implements Command{
 
     @Override
     public void execute(String path) throws IncorrectCommandException, IncorrectIDException {
+        
+        if (!ServerManager.checkServer()) {
+            return;
+        }
+
         BufferedReader reader = null;
         String script = "";
         try {
             reader = new BufferedReader(
                         new InputStreamReader(
-                            new FileInputStream("script"+ File.separator+path), "UTF-8"));
+                            new FileInputStream("client/script"+ File.separator+path), "UTF-8"));
             String line;
             StringBuilder result = new StringBuilder();
             
@@ -45,7 +54,11 @@ public class ExecuteScriptCommand implements Command{
 
             script = result.toString();
             
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("Нет такого скрипта: " + path);
+        }
+        
+        catch (IOException e) {
             System.err.println(e);
         } finally {
             elementSpaceMarine = new ArrayList<String>();

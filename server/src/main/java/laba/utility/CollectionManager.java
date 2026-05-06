@@ -57,6 +57,10 @@ public class CollectionManager {
         return collection;
     } 
 
+    public static void setCollection(HashSet<SpaceMarine> set) {
+        collection = set;
+    }
+
     public static SpaceMarine createElementSpaceMarine() {
         SpaceMarine spaceMarine = new SpaceMarine();
         System.out.println("Введите имя коробля: ");

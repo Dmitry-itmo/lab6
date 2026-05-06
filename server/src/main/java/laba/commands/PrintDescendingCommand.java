@@ -1,29 +1,33 @@
 package laba.commands;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import org.slf4j.*;
+
 import laba.data.SpaceMarine;
+import laba.serverUtility.ConnectManager;
 import laba.utility.CollectionManager;
 /**
  * A command that outputs the elements of a collection in descending order
  */
-public class PrintDescendingCommand implements Command{
+public class PrintDescendingCommand implements Command,Serializable{
+    private static final Logger logger = LoggerFactory.getLogger(ConnectManager.class);
     @Override
     public void execute() {
         if (CollectionManager.getCollection().size() == 0) {
-            System.out.println("В коллекции нет элементов");
+            logger.info("В коллекции нет элементов");
             return;
         }
         ArrayList<SpaceMarine> list = new ArrayList<>(CollectionManager.getCollection());
         Collections.sort(list);
         Collections.reverse(list);
         for (SpaceMarine spaceMarine : list) {
-            System.out.println();
-            System.out.println(spaceMarine);
+            logger.info(spaceMarine.toString());
         }
         
-        System.out.println();
+        logger.info("Выполнена команда print_descending");
     }
 
     @Override

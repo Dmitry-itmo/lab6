@@ -1,10 +1,13 @@
 package laba.commands;
 
+import java.io.Serializable;
+
 import laba.utility.CollectionManager;
 /**
  * The command that shows information about the collection
  */
-public class InfoCommand implements Command{
+public class InfoCommand implements Command,Serializable{
+    private static final long serialVersionUID = 1L;
     @Override
     public void execute() {
         System.out.println("Длина коллеции: " + CollectionManager.getCollection().size());
